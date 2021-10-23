@@ -1,4 +1,7 @@
+import 'dart:convert';
+
 import 'package:daniel_ortiz_6_2021_2_p1/helpers/constans.dart';
+import 'package:daniel_ortiz_6_2021_2_p1/models/token_news.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 
@@ -20,7 +23,9 @@ class _ListScreenState extends State<ListScreen> {
             ListTile(
               leading: Icon(Icons.article),
               title: Text('all'),
-              onTap: () {},
+              onTap: () {
+                _news('all');
+              },
             ),
             Divider(
               color: Colors.black,
@@ -29,69 +34,92 @@ class _ListScreenState extends State<ListScreen> {
             ListTile(
               leading: Icon(Icons.article),
               title: Text('startup'),
-              onTap: () {},
+              onTap: () {
+                _news('startup');
+              },
             ),
             ListTile(
               leading: Icon(Icons.article),
               title: Text('national //Indian News only'),
-              onTap: () {},
+              onTap: () {
+                _news('national //Indian News only');
+              },
             ),
             ListTile(
               leading: Icon(Icons.article),
               title: Text('business'),
-              onTap: () {},
+              onTap: () {
+                _news('business');
+              },
             ),
             ListTile(
               leading: Icon(Icons.article),
               title: Text('sports'),
-              onTap: () {},
+              onTap: () {
+                _news('sports');
+              },
             ),
             ListTile(
               leading: Icon(Icons.article),
               title: Text('world'),
-              onTap: () {},
+              onTap: () {
+                _news('world');
+              },
             ),
             ListTile(
               leading: Icon(Icons.article),
               title: Text('politics'),
-              onTap: () {},
+              onTap: () {
+                _news('politics');
+              },
             ),
             ListTile(
               leading: Icon(Icons.article),
               title: Text('technology'),
-              onTap: () {},
+              onTap: () {
+                _news('technology');
+              },
             ),
             ListTile(
               leading: Icon(Icons.article),
               title: Text('startup'),
-              onTap: () {},
+              onTap: () {
+                _news('startup');
+              },
             ),
             ListTile(
               leading: Icon(Icons.article),
               title: Text('entertainment'),
-              onTap: () {},
+              onTap: () {
+                _news('entertainment');
+              },
             ),
             ListTile(
               leading: Icon(Icons.article),
               title: Text('miscellaneous'),
-              onTap: () {},
+              onTap: () {
+                _news('miscellaneous');
+              },
             ),
             ListTile(
               leading: Icon(Icons.article),
               title: Text('hatke'),
-              onTap: () {},
+              onTap: () {
+                _news('hatke');
+              },
             ),
             ListTile(
               leading: Icon(Icons.article),
               title: Text('science'),
-              onTap: () {},
+              onTap: () {
+                _news('science');
+              },
             ),
             ListTile(
               leading: Icon(Icons.article),
               title: Text('automobile'),
               onTap: () {
-                print('Hola');
-                _automobile();
+                _news('automobile');
               },
             ),
           ],
@@ -100,12 +128,15 @@ class _ListScreenState extends State<ListScreen> {
     );
   }
 
-  void _automobile() async {
+  void _news(String typenews) async {
     var url = Uri.parse('${Constans.apiUrl}science');
-    var response = await http.get(url, headers: {
-      'content-type': 'application/json',
-      'accept': 'application/json',
-    });
+    var response = await http.get(
+      url,
+      headers: {
+        'content-type': 'application/json',
+        'accept': 'application/json',
+      },
+    );
 
     print(response.body);
   }
