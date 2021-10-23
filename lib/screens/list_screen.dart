@@ -1,4 +1,6 @@
+import 'package:daniel_ortiz_6_2021_2_p1/helpers/constans.dart';
 import 'package:flutter/material.dart';
+import 'package:http/http.dart' as http;
 
 class ListScreen extends StatefulWidget {
   const ListScreen({Key? key}) : super(key: key);
@@ -87,11 +89,24 @@ class _ListScreenState extends State<ListScreen> {
             ListTile(
               leading: Icon(Icons.article),
               title: Text('automobile'),
-              onTap: () {},
+              onTap: () {
+                print('Hola');
+                _automobile();
+              },
             ),
           ],
         ),
       ),
     );
+  }
+
+  void _automobile() async {
+    var url = Uri.parse('${Constans.apiUrl}science');
+    var response = await http.get(url, headers: {
+      'content-type': 'application/json',
+      'accept': 'application/json',
+    });
+
+    print(response.body);
   }
 }
